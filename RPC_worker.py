@@ -34,6 +34,6 @@ for message in queue.consume_messages():
     os.unlink(result_file)
 
     response = rabbitpy.Message(channel, body, properties)
-    response.publish('rcp-replies', message.properties['reply_to'])
+    response.publish('rpc-replies', message.properties['reply_to'])
     message.ack()
 
